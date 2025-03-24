@@ -15,7 +15,9 @@ public class SupportBlock {
     private EntityBlockInfo supportingBlock;
 
     public static EntityBlockInfo getSupportBlock(Player player) {
-        return supportMap.get(player.getUUID()).supportingBlock;
+        var supportBlock = supportMap.get(player.getUUID());
+        if (supportBlock == null) return null;
+        return supportBlock.supportingBlock;
     }
 
     public static EntityBlockInfo calculate(Player player) {
